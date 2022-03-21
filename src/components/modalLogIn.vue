@@ -52,12 +52,6 @@ export default {
     closeModal: function (){
       this.show = false
     },
-    logIn: function (){
-      if (this.number == this.user.tel){
-        console.log(1)
-      }
-
-    }
   }
 }
 </script>
