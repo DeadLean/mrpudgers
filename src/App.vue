@@ -1,28 +1,40 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <header-base />
+    <header-img />
+    <main-menu />
+    <site-footer />
+
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import headerBase from './components/headerBase.vue';
+import headerImg from "@/components/headerImg";
+import mainMenu from "@/components/mainMenu";
+import siteFooter from "@/components/siteFooter";
+
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    headerBase,
+    headerImg,
+    mainMenu,
+    siteFooter,
+
+  },
+  methods: {
+    showModal: function () {
+      this.$refs.modal.show = true
+    }
   }
 }
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+#app{
+  margin: 0;
+  background-color: #F5F5F5;
 }
 </style>
