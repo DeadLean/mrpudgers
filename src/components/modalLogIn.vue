@@ -8,31 +8,55 @@
         </slot>
         <slot name="body">
           <div class="body">
-            <input placeholder="Введите номер телефона" type="tel" class="tel">
-            <input type="password" placeholder="Введите пароль" class="password">
-            <button>Войти</button>
+            <input placeholder="Введите номер телефона" type="tel" class="tel" v-model="number">
+            <input type="password" placeholder="Введите пароль" class="password" v-model="password">
+            <button @click="logIn">Войти</button>
           </div>
         </slot>
-        <slot name="footer" class="footer">
-          <h3>У меня нет аккаунта :(</h3>
-          <a href="#" class="wantReg">Хочу зарегестрироваться!</a>
-        </slot>
       </div>
       </div>
+    <modal-reg />
   </div>
 </template>
 
 <script>
+import modalReg from "@/components/modalReg";
 export default {
   name: "modalLogIn",
+  components: {
+    modalReg
+  },
+
   data: function () {
     return{
-      show: true
+      show: false,
+      users: [
+        {
+          id: 0,
+          tel: 1,
+          pass: 1111,
+          admin: 0
+        },
+        {
+          id: 1,
+          tel: 2,
+          pass: 2222,
+          admin: 1
+        }
+      ],
+      number: '',
+      password: ''
     }
   },
   methods: {
     closeModal: function (){
       this.show = false
+    },
+    logIn: function (){
+      if (this.number == this.user.tel){
+        console.log(1)
+      }
+
     }
   }
 }
@@ -88,9 +112,5 @@ button{
   border-radius: 10px;
   background-color: #1890FF;
   color: white;
-}
-a{
-  text-decoration: none;
-  color: #1890FF;
 }
 </style>
